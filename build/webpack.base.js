@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     path: projectRoot + '/dist',
-    filename: '[name].package.js'
+    filename: '[name].[chunkHash].package.js'
   },
   resolve: {
     extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html', '.svg', '.jpg', '.jpeg', '.png', '.gif'],
