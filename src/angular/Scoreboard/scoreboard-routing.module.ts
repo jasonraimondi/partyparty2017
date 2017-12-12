@@ -4,14 +4,14 @@ import { ScoreboardComponent } from './scoreboard.component';
 
 
 
-export const heroesRoutes: Routes = [
+export const guestsRoutes: Routes = [
   { path: 'scoreboard',  component: ScoreboardComponent },
-  // { path: 'heroes/:id', component: HeroDetailComponent }
+  // { path: 'guests/:id', component: GuestDetailComponent }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(heroesRoutes)
+    RouterModule.forChild(guestsRoutes)
   ],
   exports: [
     RouterModule

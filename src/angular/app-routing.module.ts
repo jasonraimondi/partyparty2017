@@ -7,7 +7,7 @@ import { NotFoundComponent } from './NotFound/not-found.component';
 import { ScoreboardComponent } from './Scoreboard/scoreboard.component';
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '', redirectTo: '/guests', pathMatch: 'full' },
   { path: 'scoreboard', redirectTo: '/scoreboard', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
