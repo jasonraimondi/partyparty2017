@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "holiday-party-2017",
+    "dist": "holiday-party-2017",
+    "holiday-party-2017": "holiday-party-2017"
+  }
+}

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  express:
+    image: containers.jasonraimondi.com/jmondi/ts-express:0.0.1-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: npm run serve

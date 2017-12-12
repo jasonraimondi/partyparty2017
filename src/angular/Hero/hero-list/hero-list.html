@@ -1,0 +1,10 @@
+<h2>Party People</h2>
+
+<ul class="items">
+    <li *ngFor="let hero of heroService.heroes$ | async"
+        [class.selected]="hero.id === selectedId">
+        <!--<a [routerLink]="['/heroes', hero.id]">-->
+            {{ hero.firstName }}
+        <!--</a>-->
+    </li>
+</ul>
