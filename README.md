@@ -4,13 +4,14 @@
 
 [https://holiday-party-2017.firebaseapp.com/heroes](https://holiday-party-2017.firebaseapp.com/heroes)
 
+### Installation:
 
-```json
-  "scripts": {
-    "serve": "webpack-dev-server --hot --inline --progress --config build/webpack.dev.js",
-    "dev": "webpack --config build/webpack.dev.js",
-    "prod": "npm run build",
-    "build": "node build/build.js",
-    "deploy": "npm run build && firebase deploy"
-  }
+```bash
+git clone ssh://git@bitbucket.ef.network:7999/jason/partyparty2017.git
+cd partyparty2017
+make init
+# now you need to ask @jraimondi or @sberard for the firebase config
+# firebase project name is "holiday-party-2017"
+npm run build
+npm run deploy
 ```
