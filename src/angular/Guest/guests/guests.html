@@ -3,8 +3,8 @@
 <ul class="items">
     <li *ngFor="let guest of guestService.guests$ | async"
         [class.selected]="guest.id === selectedId">
-        <!--<a [routerLink]="['/guests', guest.id]">-->
-            {{ guest.firstName }}
-        <!--</a>-->
+        <a [routerLink]="['/guests', guest.key]">
+            {{ guest.firstName }} {{ guest.lastName }}
+        </a>
     </li>
 </ul>

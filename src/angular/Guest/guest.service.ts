@@ -3,7 +3,7 @@ import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 export class Guest {
 //   constructor(
@@ -16,22 +16,23 @@ export class Guest {
 
 @Injectable()
 export class GuestService {
-  readonly eventId = '7fff5387-0000-45a0-a38a-5c260d22d3fb';
+  readonly guestPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/guests';
+    
+    private _guests$?: Observable<Guest[]>;
+    private _guestList$?: AngularFireList<any>;
 
-  private _guests$?: Observable<any[]>;
-
-  constructor(private angularFire: AngularFireDatabase) {}
+  constructor(private angularFire: AngularFireDatabase) {
+      this._guestList$ = this.angularFire.list(this.guestPath);
+      this._guests$ = this._guestList$.snapshotChanges().map(changes => {
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+      });
+  }
 
   get guests$() {
-    if (this._guests$ == null) {
-      this._guests$ = this.angularFire.list(this.eventId + '/guests').valueChanges();
-    }
-
     return this._guests$;
   }
 
-  // getGuest(id: string) {
-    // return this.getGuestes()
-    //   .map(guests => guests.find(guest => guest.id === id));
-  // }
+  getGuest(id: string): Observable<Guest> {
+    return this.angularFire.object(this.guestPath + '/' + id).valueChanges();
+  }
 }

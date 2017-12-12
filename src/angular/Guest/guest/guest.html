@@ -1,13 +1,4 @@
-<h2>HEROES</h2>
 <div *ngIf="guest$ | async as guest">
-    <h3>"{{ guest.name }}"</h3>
-    <div>
-        <label>Id: </label>{{ guest.id }}</div>
-    <div>
-        <label>Name: </label>
-        <input [(ngModel)]="guest.name" placeholder="name"/>
-    </div>
-    <p>
-        <button (click)="gotoGuests(guest)">Back</button>
-    </p>
+    <h3>{{ guest.firstName }} {{ guest.lastName }}</h3>
+    <a routerLink="/guests">Back</a>
 </div>
