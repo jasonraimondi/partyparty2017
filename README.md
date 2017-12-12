@@ -2,7 +2,7 @@
 
 # PartyParty2017
 
-[https://holiday-party-2017.firebaseapp.com/heroes](https://holiday-party-2017.firebaseapp.com/heroes)
+[https://holiday-party-2017.firebaseapp.com\](https://holiday-party-2017.firebaseapp.com\)
 
 ### Installation:
 
