@@ -12,6 +12,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroModule } from './Hero/hero.module';
+import { ScoreboardModule } from './Scoreboard/scoreboard.module';
 import { NotFoundComponent } from './NotFound/not-found.component';
 
 import * as config from '../../config/index';
@@ -25,6 +26,7 @@ import * as config from '../../config/index';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     HeroModule,
+    ScoreboardModule,
     AppRoutingModule, // must be last @see https://angular.io/guide/router#module-import-order-matters
   ],
   declarations: [
