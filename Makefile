@@ -8,4 +8,7 @@ build:
 	npm run build
 
 install:
-	npm run install
+	npm install
+
+deploy: install build
+	firebase deploy
