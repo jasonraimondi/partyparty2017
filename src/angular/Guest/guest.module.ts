@@ -20,7 +20,7 @@ import { GuestService } from './guest.service';
   ],
   providers: [
     GuestService
-  ],
+  ]
 })
 
 export class GuestModule {

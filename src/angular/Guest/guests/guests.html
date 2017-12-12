@@ -1,10 +1,10 @@
-<h2>Party People</h2>
-
-<ul class="items">
-    <li *ngFor="let guest of guestService.guests$ | async"
+<ul class="list-reset">
+    <li *ngFor="let guest of guestService.guests$ | async" class="my-1"
         [class.selected]="guest.id === selectedId">
-        <a [routerLink]="['/guests', guest.key]">
+        <a [routerLink]="['/guests', guest.key]" class="no-underline active:text-black hover:text-black text-grey">
             {{ guest.firstName }} {{ guest.lastName }}
         </a>
     </li>
 </ul>
+
+<router-outlet class="poop"></router-outlet>

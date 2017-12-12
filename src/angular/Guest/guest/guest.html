@@ -1,4 +1,6 @@
 <div *ngIf="guest$ | async as guest">
-    <h3>{{ guest.firstName }} {{ guest.lastName }}</h3>
-    <a routerLink="/guests">Back</a>
+    <h3 class="mb-4">{{ guest.firstName }} {{ guest.lastName }}</h3>
+    <p class="mb-2">{{ guest.email }}</p>
+    <p>Score: <span class="text-grey">{{ guest.score }}</span></p>
 </div>
+<a routerLink="/guests" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>
