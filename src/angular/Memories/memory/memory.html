@@ -1,6 +1,10 @@
 <div *ngIf="memory$ | async as memory">
-    <pre><code>
-        {{ memory | json }}
-    </code></pre>
+    <ul class="list-reset">
+        <li *ngFor="let event of events$ | async" class="mb-2">
+            <p class="font-bold text-md">{{ event.type }}</p>
+            <p>{{ event.timestamp * 1000 | date:'medium' }}</p>
+        </li>
+    </ul>
 </div>
+
 <a routerLink="/" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>

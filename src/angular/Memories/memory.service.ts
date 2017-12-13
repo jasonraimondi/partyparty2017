@@ -14,6 +14,10 @@ export class MemoryService {
   constructor(private angularFire: AngularFireDatabase) {
   }
 
+  getEvents(id: string): Observable<any> {
+    return this.angularFire.list(this.memoryPath + '/' + id + '/events').valueChanges();
+  }
+
   getMemory(id: string): Observable<Memory> {
     return this.angularFire.object(this.memoryPath + '/' + id).valueChanges();
   }

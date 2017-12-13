@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Guest, GuestService } from '../guest.service';
 import { Observable } from 'rxjs/Observable';
+import {MemoryService} from "../../Memories/memory.service";
 
 @Component({
     selector: 'guest',
@@ -12,20 +13,21 @@ import { Observable } from 'rxjs/Observable';
 
 export class GuestDetailComponent implements OnInit {
     private _guest$: Observable<Guest>;
-    
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private service: GuestService
+        private guestService: GuestService,
+        private memoryService: MemoryService
     ) {
         this._guest$ = this.route.paramMap
-            .switchMap((params: ParamMap) => this.service.getGuest(params.get('id')));
+            .switchMap((params: ParamMap) => this.guestService.getGuest(params.get('id')));
     }
-    
+
     get guest$(): Observable<Guest> {
         return this._guest$;
     }
-    
+
     ngOnInit() {
     }
 }
