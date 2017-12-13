@@ -1,19 +1,20 @@
 import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 
-import { Guest, GuestService } from '../guest.service';
+import { GuestService } from '../guest.service';
+import { ReversePipe } from '../../reverse.pipe';
 
 @Component({
-  selector: 'guests',
-  template: require('./guests.html')
+    selector: 'guests',
+    template: require('./guests.html'),
+    viewProviders: [ReversePipe]
 })
 
 export class GuestListComponent implements OnInit {
-
-  constructor(private guestService: GuestService) {
-  }
-
-  ngOnInit() {
-  }
+    
+    constructor(private guestService: GuestService) {
+    }
+    
+    ngOnInit() {
+    }
 }
