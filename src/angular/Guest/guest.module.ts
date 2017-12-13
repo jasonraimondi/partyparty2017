@@ -6,19 +6,19 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { GuestDetailComponent } from './guest/guest.component';
 import { GuestListComponent } from './guests/guests.component';
 import { GuestService } from './guest.service';
-import { ReversePipe } from '../reverse.pipe';
+import { UtilitiesModule } from '../utilities.module';
 
 
 @NgModule({
     imports: [
         FormsModule,
         CommonModule,
+        UtilitiesModule,
         GuestRoutingModule,
     ],
     declarations: [
         GuestDetailComponent,
         GuestListComponent,
-        ReversePipe,
     ],
     providers: [
         GuestService,

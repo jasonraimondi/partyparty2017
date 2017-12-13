@@ -12,11 +12,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GuestModule } from './Guest/guest.module';
+import { MemoryModule } from './Memories/memory.module';
 import { ScoreboardModule } from './Scoreboard/scoreboard.module';
 import { NotFoundComponent } from './NotFound/not-found.component';
+import { UtilitiesModule } from './utilities.module';
 
 import * as config from '../../config/index';
-import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
     imports: [
@@ -27,6 +28,7 @@ import { ReversePipe } from './reverse.pipe';
         AngularFirestoreModule,
         AngularFireDatabaseModule,
         GuestModule,
+        MemoryModule,
         ScoreboardModule,
         AppRoutingModule, // must be last @see https://angular.io/guide/router#module-import-order-matters
     ],
@@ -43,7 +45,7 @@ import { ReversePipe } from './reverse.pipe';
 
 export class AppModule {
     // Diagnostic only: inspect router configuration
-    
+
     constructor(router: Router) {
         console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
     }

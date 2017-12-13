@@ -1,0 +1,6 @@
+<div *ngIf="memory$ | async as memory">
+    <pre><code>
+        {{ memory | json }}
+    </code></pre>
+</div>
+<a routerLink="/" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>
