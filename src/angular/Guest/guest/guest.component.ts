@@ -13,6 +13,7 @@ import {MemoryService} from "../../Memories/memory.service";
 
 export class GuestDetailComponent implements OnInit {
     private _guest$: Observable<Guest>;
+    private guestTagId: string | null;
 
     constructor(
         private route: ActivatedRoute,
@@ -21,7 +22,10 @@ export class GuestDetailComponent implements OnInit {
         private memoryService: MemoryService
     ) {
         this._guest$ = this.route.paramMap
-            .switchMap((params: ParamMap) => this.guestService.getGuest(params.get('id')));
+            .switchMap((params: ParamMap) => {
+                this.guestTagId = params.get('id');
+                return this.guestService.getGuest(params.get('id'))
+            });
     }
 
     get guest$(): Observable<Guest> {

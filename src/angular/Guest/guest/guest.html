@@ -3,5 +3,11 @@
     <p class="mb-2">{{ guest.email }}</p>
     <a class="block" [routerLink]="['/memories', guest.efInvitationId]">Memories</a>
     <p>Score: <span class="text-grey">{{ guest.score }}</span></p>
+    <p class="text-sm text-grey">
+        (earn more
+        <a class="text-grey hover:text-grey-dark no-underline" href="http://jirafairy.com/?tagId={{ guestTagId }}" target="_blank">
+            {{ '😀' }} here {{ '😀' }}</a>)
+
+    </p>
 </div>
 <a routerLink="/guests" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>
