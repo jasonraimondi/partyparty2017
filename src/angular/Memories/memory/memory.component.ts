@@ -2,7 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { Memory, MemoryService } from '../memory.service';
+import { MemoryEvent, MemoryService } from '../memory.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -11,7 +11,12 @@ import { Observable } from 'rxjs/Observable';
 })
 
 export class MemoryDetailComponent implements OnInit {
-    private _memory$: Observable<Memory>;
+    readonly checkedInIcon = require('../../assets/checked-in.svg');
+    readonly funFactCorrectIcon = require('../../assets/fun-fact-correct.svg');
+    readonly karaokeIcon = require('../../assets/karaoke.svg');
+    readonly rightPersonIcon = require('../../assets/pts-for-being-the-right-person.svg');
+
+    private _memory$: Observable<MemoryEvent>;
     private _events$: Observable<any>;
 
     constructor(
@@ -20,18 +25,30 @@ export class MemoryDetailComponent implements OnInit {
         private service: MemoryService
     ) {
         this._memory$ = this.route.paramMap
-            .switchMap((params: ParamMap) => this.service.getMemory(params.get('id')));
+            .switchMap((params: ParamMap) => this.service.getDigitalMemoryBank(params.get('id')));
 
         this._events$ = this.route.paramMap
             .switchMap((params: ParamMap) => this.service.getEvents(params.get('id')));
     }
 
-    get memory$(): Observable<Memory> {
+    get memory$(): Observable<MemoryEvent> {
         return this._memory$;
     }
 
-    get events$(): Observable<Memory> {
+    get events$(): Observable<MemoryEvent> {
         return this._events$;
+    }
+
+    public getIconForMemory(event: MemoryEvent): any {
+        if (event.isKaraoke) {
+            return this.karaokeIcon;
+        } else if (event.isCheckIn) {
+            return this.checkedInIcon;
+        } else if (event.isWeirdFact) {
+            return this.funFactCorrectIcon;
+        }
+
+        return this.rightPersonIcon;
     }
 
     ngOnInit() {
