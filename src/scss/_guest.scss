@@ -5,7 +5,7 @@
     transform: rotate(90deg);
     position: relative;
     top: -2rem;
-    @apply .ml-4;
+    @apply .ml-6;
   }
 
   li:nth-child(odd) {
@@ -15,7 +15,7 @@
       flex-direction: row-reverse;
     }
     .guest-text {
-      @apply .mr-4 .ml-0;
+      @apply .mr-6 .ml-0;
     }
   }
 

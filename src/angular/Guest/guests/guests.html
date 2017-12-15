@@ -2,7 +2,8 @@
     <ul class="list-reset text-center w-full">
         <li *ngFor="let guest of guestService.guests$ | async | reverse"
             [class.selected]="guest.id === selectedId">
-            <a [routerLink]="['/guests', guest.key]" class="no-underline text-2xl font-light active:text-red hover:text-red hover:border-red text-white block mb-4 w-full pt-4 pb-2 border-b-2 border-b-white  rounded">
+            <a [routerLink]="['/guests', guest.key]"
+               class="no-underline text-2xl font-light active:text-red hover:text-red hover:border-red text-white block mb-4 w-full pt-4 pb-2 border-b-2 border-b-white  rounded">
                 <span class="flex justify-between">
                     <span class="flex-1">{{ guest.score }}</span>
                     <span class="flex-1">{{ guest.firstName }} {{ guest.lastName }}</span>
@@ -11,3 +12,9 @@
         </li>
     </ul>
 </div>
+
+<a routerLink="/photos" class="text-center no-underline text-2xl font-light active:text-red hover:text-red hover:border-red text-white block mb-4 w-full pt-4 pb-2 border-b-2 border-b-white rounded">
+        <span class="flex justify-between">
+            <span class="flex-1">Photo Gallery</span>
+        </span>
+</a>
