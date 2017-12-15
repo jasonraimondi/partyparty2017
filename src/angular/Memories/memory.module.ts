@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { MemoryRoutingModule } from './memory-routing.module';
 import { MemoryDetailComponent } from './memory/memory.component';
 import { MemoryService } from './memory.service';
-import { UtilitiesModule } from '../utilities.module';
+import { UtilitiesModule } from '../utilities/utilities.module';
 
 
 @NgModule({

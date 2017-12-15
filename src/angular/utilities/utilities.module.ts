@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { ReversePipe } from './reverse.pipe';
-import { ValuesPipe } from './values.pipe';
-import { MemoryEventsPipe } from './memory-events.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { ValuesPipe } from './pipes/values.pipe';
+import { MemoryEventsPipe } from './pipes/memory-events.pipe';
 
 const forExport = [
     MemoryEventsPipe,
