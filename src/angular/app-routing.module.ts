@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
-import { NotFoundComponent } from './NotFound/not-found.component';
+import { NotFoundComponent } from './errors/not-found.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/guests', pathMatch: 'full' },

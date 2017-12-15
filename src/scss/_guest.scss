@@ -20,9 +20,21 @@
   }
 }
 
+$horizontalLineHeight: 4rem;
+
+.horizontal-line {
+  border: 4px solid white;
+  min-height: $horizontalLineHeight;
+}
+
 .guest-text-line {
   width: 100%;
   min-width: 1rem;
+}
+
+.guest-text-line, .guest-text-line-ball {
+  position: relative;
+  bottom: $horizontalLineHeight / 2;
 }
 
 .guest-memory-icon {
@@ -43,8 +55,4 @@
       }
     }
   }
-}
-
-.guest-memory-text {
-  color: purple;
 }

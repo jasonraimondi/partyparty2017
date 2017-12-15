@@ -1,4 +1,3 @@
-///<reference path="../../node_modules/angularfire2/database/database.d.ts"/>
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,8 +10,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './errors/not-found.component';
 import { GuestModule } from './Guest/guest.module';
-import { NotFoundComponent } from './NotFound/not-found.component';
 import { UtilitiesModule } from './utilities/utilities.module';
 
 import * as config from '../../config/index';
