@@ -13,7 +13,7 @@
     </p>
 </div>
 
-<div *ngIf="memory$ | async as memory" class="flex justify-center align-middle py-8">
+<div *ngIf="memory$ | async as memory" class="flex justify-center align-middle py-8 px-4">
     <ul class="list-reset w-full memory-list">
         <li *ngFor="let event of memory.events | memoryEvents; let last = last;" class="flex">
             <div class="flex-1">
@@ -22,7 +22,12 @@
             <div class="guest-memory-icon flex flex-col justify-center items-center">
                 <span class="outer-circle">
                     <span class="inner-circle">
-                        <img [src]="getIconForMemory(event)" alt="" class="border border-white rounded w-12 h-12 md:w-16 md:h-16">
+                        <a *ngIf="event.isPhoto" [href]="event.url" target="_blank" class="block">
+                            <a [href]="event.url" target="_blank" class="block">
+                                <div [ngStyle]="{ 'background-image': 'url(' + event.thumbnailURL + ')' }" class="guest-memory-photo rounded-full w-16 h-16 md:w-24 md:h-24"></div>
+                            </a>
+                        </a>
+                        <img *ngIf="!event.isPhoto" [src]="getIconForMemory(event)" class="w-12 h-12 md:w-16 md:h-16">
                     </span>
                 </span>
                 <span *ngIf="!last" class="horizontal-line"></span>
@@ -31,8 +36,9 @@
                 <span class="guest-text-line flex-1 border border-2"></span>
                 <span class="guest-text-line-ball border-8 rounded-full border-white w-2 h-2"></span>
                 <span class="guest-text text-white inline">
-                    <span class="font-bold">{{ event.text || event.type }}</span>
-                    <span class="font-thin">at {{ event.timestamp * 1000 | date:'shortTime':'America/Los_Angeles' }}</span>
+                    <span class="font-bold">{{ event.type }}</span>
+                    <!--<span *ngIf="event.text" class="truncate"><br>{{ event.text }}</span>-->
+                    <span class="font-thin"><br>{{ event.timestamp * 1000 | date:'shortTime':'America/Los_Angeles' }}</span>
                 </span>
             </div>
         </li>

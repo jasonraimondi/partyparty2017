@@ -9,7 +9,7 @@ export class MemoryEventsPipe implements PipeTransform {
         let memoryEvents: MemoryEventInterface[] = Object.keys(obj).map(k => obj[k]);
         
         return memoryEvents.map((event: MemoryEventInterface) => {
-            return new MemoryEvent(event.type, event.title, event.timestamp)
+            return new MemoryEvent(event.type, event.timestamp, event.text, event.url, event.thumbnailURL)
         });
     }
 }

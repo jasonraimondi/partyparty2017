@@ -53,6 +53,8 @@ export class GuestDetailComponent implements OnInit {
             return this.checkedInIcon;
         } else if (event.isWeirdFact) {
             return this.funFactCorrectIcon;
+        } else if (event.isPhoto) {
+            return this.funFactCorrectIcon;
         }
         
         return this.rightPersonIcon;
