@@ -18,6 +18,12 @@
       @apply .mr-4 .ml-0;
     }
   }
+
+  li:last-child {
+    .guest-text-line, .guest-text-line-ball {
+      bottom: 0;
+    }
+  }
 }
 
 $horizontalLineHeight: 4rem;

@@ -14,11 +14,25 @@ export class Guest {
   }
 }
 
+
+export interface PhotoInterface {
+    thumbnailURL: string;
+    url: string;
+}
+
+export class Photo implements PhotoInterface {
+    constructor(public thumbnailURL: string, public url: string) {}
+}
+
 @Injectable()
 export class GuestService {
     readonly guestPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/guests';
+    readonly photoPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/photos';
     readonly memoryPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/digitalMemoryBank';
-
+    
+    private _photos$?: Observable<Photo[]>;
+    private _photosList$?: AngularFireList<any>;
+    
     private _guests$?: Observable<Guest[]>;
     private _guestList$?: AngularFireList<any>;
 
@@ -29,10 +43,21 @@ export class GuestService {
         this._guests$ = this._guestList$.snapshotChanges().map(changes => {
             return changes.map(c => ({key: c.payload.key, ...c.payload.val()}));
         });
+    
+        this._photosList$ = this.angularFire.list(this.photoPath, (ref) => {
+            return ref.orderByChild('score');
+        });
+        this._photos$ = this._photosList$.snapshotChanges().map(changes => {
+            return changes.map(c => ({key: c.payload.key, ...c.payload.val()}));
+        });
     }
 
     get guests$() {
         return this._guests$;
+    }
+    
+    get photos$() {
+        return this._photos$;
     }
     
     getDigitalMemoryBank(id: string): Observable<any> {

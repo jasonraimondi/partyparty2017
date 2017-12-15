@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { GuestListComponent } from './guests/guests.component';
 import { GuestDetailComponent } from './guest/guest.component';
+import { PhotoListComponent } from './photos/photos.component';
 
 export const guestsRoutes: Routes = [
-  { path: 'guests',  component: GuestListComponent },
+    { path: 'photos',  component: PhotoListComponent },
+    { path: 'guests',  component: GuestListComponent },
   { path: 'guests/:id', component: GuestDetailComponent }
 ];
 

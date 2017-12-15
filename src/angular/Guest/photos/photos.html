@@ -1,0 +1,7 @@
+<div class="flex justify-center mt-8 text-white">
+    <ul class="list-reset text-center w-full">
+        <li *ngFor="let photo of guestService.photos$ | async">
+                <img src="{{ photo.url }}" alt="">
+        </li>
+    </ul>
+</div>
