@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { MemoryEvent, MemoryEventInterface } from '../../Memories/memory-event';
+import { MemoryEvent} from '../../Guest/memory-event';
+import { MemoryEventInterface } from '../../Guest/memory-event';
 
 @Pipe({name: 'memoryEvents'})
 

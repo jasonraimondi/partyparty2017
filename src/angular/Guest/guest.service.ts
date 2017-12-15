@@ -17,6 +17,7 @@ export class Guest {
 @Injectable()
 export class GuestService {
     readonly guestPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/guests';
+    readonly memoryPath = '7fff5387-0000-45a0-a38a-5c260d22d3fb/digitalMemoryBank';
 
     private _guests$?: Observable<Guest[]>;
     private _guestList$?: AngularFireList<any>;
@@ -32,6 +33,12 @@ export class GuestService {
 
     get guests$() {
         return this._guests$;
+    }
+    
+    getDigitalMemoryBank(id: string): Observable<any> {
+        return this.angularFire
+            .object(this.memoryPath + '/' + id)
+            .valueChanges();
     }
 
     getGuest(id: string): Observable<Guest> {

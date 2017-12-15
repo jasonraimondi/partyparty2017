@@ -12,8 +12,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GuestModule } from './Guest/guest.module';
-import { MemoryModule } from './Memories/memory.module';
-import { ScoreboardModule } from './Scoreboard/scoreboard.module';
 import { NotFoundComponent } from './NotFound/not-found.component';
 import { UtilitiesModule } from './utilities/utilities.module';
 
@@ -29,8 +27,6 @@ import * as config from '../../config/index';
         AngularFireDatabaseModule,
         UtilitiesModule,
         GuestModule,
-        MemoryModule,
-        ScoreboardModule,
         AppRoutingModule, // must be last @see https://angular.io/guide/router#module-import-order-matters
     ],
     declarations: [
