@@ -1,9 +1,12 @@
-<div class="flex justify-center mt-8">
-    <ul class="list-reset">
-        <li *ngFor="let guest of guestService.guests$ | async | reverse" class="my-1"
+<div class="flex justify-center mt-8 text-white">
+    <ul class="list-reset text-center w-full">
+        <li *ngFor="let guest of guestService.guests$ | async | reverse"
             [class.selected]="guest.id === selectedId">
-            <a [routerLink]="['/guests', guest.key]" class="no-underline active:text-black hover:text-black text-grey">
-                {{ guest.firstName }} {{ guest.lastName }} | {{ guest.score }}
+            <a [routerLink]="['/guests', guest.key]" class="no-underline text-2xl font-light active:text-red hover:text-red hover:border-red text-white block mb-4 w-full pt-4 pb-2 border-b-2 border-b-white  rounded">
+                <span class="flex justify-between">
+                    <span class="flex-1">{{ guest.score }}</span>
+                    <span class="flex-1">{{ guest.firstName }} {{ guest.lastName }}</span>
+                </span>
             </a>
         </li>
     </ul>

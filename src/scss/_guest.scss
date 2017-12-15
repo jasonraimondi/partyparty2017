@@ -1,5 +1,37 @@
 .memory-list {
+  .guest-text {
+    transform: rotate(90deg);
+    //@apply .ml-4;
+  }
+
   li:nth-child(odd) {
     flex-direction: row-reverse;
+
+    .guest-memory-text {
+      flex-direction: row-reverse;
+    }
+    .guest-text {
+      //@apply .mr-4 .ml-0;
+    }
   }
+}
+
+.guest-memory-icon {
+  @apply .text-center;
+
+  .outer-circle {
+    @apply .border .border-white .border-2 .rounded-full .p-4;
+
+    .inner-circle {
+      @apply .border .border-white .border-8 .rounded-full .block .p-2;
+
+      img {
+        //width: 500px;
+      }
+    }
+  }
+}
+
+.guest-memory-text {
+  color: purple;
 }

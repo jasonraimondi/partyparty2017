@@ -1,31 +1,39 @@
-<div *ngIf="guest$ | async as guest">
-    <h3 class="mb-4">{{ guest.firstName }} {{ guest.lastName }}</h3>
-    <p class="mb-2">{{ guest.email }}</p>
-    <a class="block" [routerLink]="['/memories', guest.efInvitationId]">Memories</a>
-    <p>Score: <span class="text-grey">{{ guest.score }}</span></p>
-    <p class="text-sm text-grey">
-        (earn more
-        <a class="text-grey hover:text-grey-dark no-underline" href="http://jirafairy.com/?tagId={{ guestTagId }}" target="_blank">
-            {{ '😀' }} here {{ '😀' }}</a>)
-
+<div *ngIf="guest$ | async as guest" class="flex flex-col text-center text-white mt-8">
+    <h1 class="mb-4">{{ guest.firstName }} {{ guest.lastName }}</h1>
+    <p class="mb-2">
+        Score: <span class="">{{ guest.score || 0 }}</span>
+    </p>
+    <p class="mb-1">
+        <a class="text-white text-sm hover:text-grey-light no-underline block" href="http://jirafairy.com/?tagId={{ guestTagId }}" target="_blank">
+            Help {{ guest.firstName }} get more points!
+        </a>
+    </p>
+    <p class="">
+        <a routerLink="/guests" class="text-grey-light hover:text-grey text-xs">Go Back</a>
     </p>
 </div>
-<a routerLink="/guests" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>
 
-<div *ngIf="memory$ | async as memory" class="flex justify-center align-middle">
+<div *ngIf="memory$ | async as memory" class="flex justify-center align-middle py-8">
     <ul class="list-reset w-full memory-list">
-        <li *ngFor="let event of memory.events | memoryEvents" class="flex mb-2 py-8">
+        <li *ngFor="let event of memory.events | memoryEvents" class="flex py-8">
             <div class="flex-1">
                 <span class="invisible"></span>
             </div>
-            <div class="flex-1 flex justify-center align-middle">
-                <img [src]="getIconForMemory(event)" alt="" class="border border-white rounded w-16 h-16">
+            <div class="guest-memory-icon flex justify-center items-center">
+                <span class="outer-circle">
+                    <span class="inner-circle">
+                        <img [src]="getIconForMemory(event)" alt="" class="border border-white rounded w-8 h-8 md:w-16 md:h-16">
+                    </span>
+                </span>
             </div>
-            <div class="flex-1">
-                <p class="text-white">{{ event.text || event.type }} at {{ event.timestamp * 1000 | date:'short':'America/Los_Angeles' }}</p>
+            <div class="guest-memory-text flex-1 flex justify-center items-center">
+                <span class="flex-1 border border-2 w-16"></span>
+                <span class="guest-text text-white">{{ event.text || event.type }} at {{ event.timestamp * 1000 | date:'shortTime':'America/Los_Angeles' }}</span>
             </div>
         </li>
     </ul>
 </div>
 
-<a routerLink="/" class="inline-block text-blue border border-blue rounded no-underline p-1 mt-2">Back</a>
+<div class="flex justify-center align-middle mt-8">
+    <a routerLink="/guests" class="max-w-xs inline-block text-white border border-white rounded text-center no-underline p-4 mt-2 mb-4 w-full">Back</a>
+</div>
