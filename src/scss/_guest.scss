@@ -1,7 +1,11 @@
 .memory-list {
   .guest-text {
+    white-space: nowrap;
+    max-width: 1rem;
     transform: rotate(90deg);
-    //@apply .ml-4;
+    position: relative;
+    top: -2rem;
+    @apply .ml-4;
   }
 
   li:nth-child(odd) {
@@ -11,9 +15,14 @@
       flex-direction: row-reverse;
     }
     .guest-text {
-      //@apply .mr-4 .ml-0;
+      @apply .mr-4 .ml-0;
     }
   }
+}
+
+.guest-text-line {
+  width: 100%;
+  min-width: 1rem;
 }
 
 .guest-memory-icon {
@@ -23,7 +32,11 @@
     @apply .border .border-white .border-2 .rounded-full .p-4;
 
     .inner-circle {
-      @apply .border .border-white .border-8 .rounded-full .block .p-2;
+      @apply .border .border-white .border-4 .rounded-full .block .p-2;
+
+      @screen md {
+        @apply .border-8 .p-4;
+      }
 
       img {
         //width: 500px;

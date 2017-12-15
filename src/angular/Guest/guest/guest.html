@@ -4,7 +4,7 @@
         Score: <span class="">{{ guest.score || 0 }}</span>
     </p>
     <p class="mb-1">
-        <a class="text-white text-sm hover:text-grey-light no-underline block" href="http://jirafairy.com/?tagId={{ guestTagId }}" target="_blank">
+        <a class="text-grey-light hover:text-grey hover:border-grey border-b border-b-1 text-sm no-underline inline-block " href="http://jirafairy.com/?tagId={{ guestTagId }}" target="_blank">
             Help {{ guest.firstName }} get more points!
         </a>
     </p>
@@ -22,13 +22,13 @@
             <div class="guest-memory-icon flex justify-center items-center">
                 <span class="outer-circle">
                     <span class="inner-circle">
-                        <img [src]="getIconForMemory(event)" alt="" class="border border-white rounded w-8 h-8 md:w-16 md:h-16">
+                        <img [src]="getIconForMemory(event)" alt="" class="border border-white rounded w-12 h-12 md:w-16 md:h-16">
                     </span>
                 </span>
             </div>
             <div class="guest-memory-text flex-1 flex justify-center items-center">
-                <span class="flex-1 border border-2 w-16"></span>
-                <span class="guest-text text-white">{{ event.text || event.type }} at {{ event.timestamp * 1000 | date:'shortTime':'America/Los_Angeles' }}</span>
+                <span class="guest-text-line flex-1 border border-2"></span><span class="border-8 rounded-full border-white w-2 h-2"></span>
+                <span class="guest-text text-white inline">{{ event.text || event.type }} at {{ event.timestamp * 1000 | date:'shortTime':'America/Los_Angeles' }}</span>
             </div>
         </li>
     </ul>
