@@ -1,27 +1,10 @@
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {AngularFireDatabase} from 'angularfire2/database';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
 
-export class MemoryEvent {
-    constructor(public text?: 'Karaoke'|'WeirdFact'|'CheckIn'|string,
-                public title?: string,
-                public timestamp?: number) {
-    }
-
-    get isKaraoke(): boolean {
-        return this.text === 'Karaoke';
-    }
-
-    get isWeirdFact(): boolean {
-        return this.text === 'WeirdFact';
-    }
-
-    get isCheckIn(): boolean {
-        return this.text === 'CheckIn';
-    }
-}
+import { MemoryEvent } from './memory-event';
 
 @Injectable()
 export class MemoryService {
@@ -30,7 +13,7 @@ export class MemoryService {
     constructor(private angularFire: AngularFireDatabase) {
     }
 
-    getEvents(id: string): Observable<MemoryEvent> {
+    getMemoryEvents(id: string): Observable<MemoryEvent> {
         return this.angularFire.list(this.memoryPath + '/' + id + '/events').valueChanges().map((event: any) => {
             return new MemoryEvent(event.text, event.title, event.title);
         });

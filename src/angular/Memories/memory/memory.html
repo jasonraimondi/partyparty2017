@@ -1,13 +1,12 @@
 <div *ngIf="memory$ | async as memory">
     <ul class="list-reset">
-        <li *ngFor="let event of events$ | async" class="flex mb-2">
+        <li *ngFor="let event of memory.events | memoryEvents" class="flex mb-2">
             <div>
                 <img [src]="getIconForMemory(event)" alt="" class="w-16 h-16">
             </div>
             <div class="flex-1">
-                <p class="font-bold text-md">{{ event.type }}</p>
-                <p>{{ event.text }}</p>
-                <p>{{ event.timestamp * 1000 | date:'medium' }}</p>
+                <p>{{ event.type }}</p>
+                <p class="text-grey">{{ event.timestamp * 1000 | date:'short':'America/Los_Angeles' }}</p>
             </div>
         </li>
     </ul>

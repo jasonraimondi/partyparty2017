@@ -2,8 +2,9 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { MemoryEvent, MemoryService } from '../memory.service';
+import { MemoryService } from '../memory.service';
 import { Observable } from 'rxjs/Observable';
+import { MemoryEvent } from '../memory-event';
 
 @Component({
     selector: 'memory',
@@ -17,7 +18,6 @@ export class MemoryDetailComponent implements OnInit {
     readonly rightPersonIcon = require('../../assets/pts-for-being-the-right-person.svg');
 
     private _memory$: Observable<MemoryEvent>;
-    private _events$: Observable<any>;
 
     constructor(
         private route: ActivatedRoute,
@@ -25,18 +25,13 @@ export class MemoryDetailComponent implements OnInit {
         private service: MemoryService
     ) {
         this._memory$ = this.route.paramMap
-            .switchMap((params: ParamMap) => this.service.getDigitalMemoryBank(params.get('id')));
-
-        this._events$ = this.route.paramMap
-            .switchMap((params: ParamMap) => this.service.getEvents(params.get('id')));
+            .switchMap((params: ParamMap) => {
+                return this.service.getDigitalMemoryBank(params.get('id'));
+            });
     }
 
     get memory$(): Observable<MemoryEvent> {
         return this._memory$;
-    }
-
-    get events$(): Observable<MemoryEvent> {
-        return this._events$;
     }
 
     public getIconForMemory(event: MemoryEvent): any {
