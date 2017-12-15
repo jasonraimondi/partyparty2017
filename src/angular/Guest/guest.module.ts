@@ -6,7 +6,7 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { GuestDetailComponent } from './guest/guest.component';
 import { GuestListComponent } from './guests/guests.component';
 import { GuestService } from './guest.service';
-import { UtilitiesModule } from '../utilities.module';
+import { UtilitiesModule } from '../utilities/utilities.module';
 
 
 @NgModule({

@@ -15,7 +15,7 @@ import { GuestModule } from './Guest/guest.module';
 import { MemoryModule } from './Memories/memory.module';
 import { ScoreboardModule } from './Scoreboard/scoreboard.module';
 import { NotFoundComponent } from './NotFound/not-found.component';
-import { UtilitiesModule } from './utilities.module';
+import { UtilitiesModule } from './utilities/utilities.module';
 
 import * as config from '../../config/index';
 
@@ -27,6 +27,7 @@ import * as config from '../../config/index';
         AngularFireModule.initializeApp(config.firebase),
         AngularFirestoreModule,
         AngularFireDatabaseModule,
+        UtilitiesModule,
         GuestModule,
         MemoryModule,
         ScoreboardModule,
