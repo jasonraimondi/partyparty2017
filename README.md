@@ -1,8 +1,8 @@
 [![Build Status](https://ci.jasonraimondi.com/api/badges/jason/ngx-starter/status.svg)](https://ci.jasonraimondi.com/jason/ngx-starter)
 
-# PartyParty2017
+# PartyParty2017 Display Board
 
-[https://holiday-party-2017.firebaseapp.com\](https://holiday-party-2017.firebaseapp.com\)
+Board: https://holiday-party-2017.firebaseapp.com
 
 ### Installation:
 
